@@ -1,0 +1,281 @@
+/* Editar géneros ahora se presenta como overlay (bottom-sheet en mobile,
+   panel centrado en desktop) en vez de una pantalla aparte. */
+.pantallaEditarGeneros {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  overflow-y: auto;
+  animation: fmFadeIn var(--fm-dur) var(--fm-ease);
+}
+
+@keyframes fmFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fmSheetUp {
+  from { transform: translateY(24px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.editarGenerosHeader {
+  width: 100%;
+  max-width: 430px;
+  height: 72px;
+  padding: 0 24px;
+  background: var(--fm-surface);
+  border: 1.5px solid var(--fm-border);
+  border-bottom: none;
+  border-radius: var(--fm-radius-lg) var(--fm-radius-lg) 0 0;
+  box-shadow: var(--fm-shadow);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-sizing: border-box;
+  animation: fmSheetUp var(--fm-dur) var(--fm-ease);
+}
+
+.editarGenerosVolver {
+  border: none;
+  background: transparent;
+  color: var(--fm-accent);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.editarGenerosLogo {
+  margin: 0;
+  font-family: var(--fm-font-display);
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0.005em;
+  color: var(--fm-muted);
+}
+
+.editarGenerosContenido {
+  width: 100%;
+  max-width: 430px;
+  padding: 20px 24px calc(28px + env(safe-area-inset-bottom));
+  background: var(--fm-surface);
+  border: 1.5px solid var(--fm-border);
+  border-top: none;
+  border-radius: 0 0 var(--fm-radius-lg) var(--fm-radius-lg);
+  box-shadow: var(--fm-shadow);
+  box-sizing: border-box;
+  animation: fmSheetUp var(--fm-dur) var(--fm-ease);
+}
+
+.editarGenerosTitulo {
+  margin: 0;
+  font-family: var(--fm-font-display);
+  font-size: 26px;
+  font-weight: 700;
+  text-transform: none;
+  color: var(--fm-ink);
+}
+
+.editarGenerosSubtitulo {
+  margin: 6px 0 20px;
+  font-size: 14px;
+  line-height: 1.3;
+  color: var(--fm-muted);
+}
+
+.editarGenerosBuscador {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--fm-bg-soft);
+  border: 1.5px solid var(--fm-border);
+  border-radius: var(--fm-radius-pill);
+  padding: 0 16px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  transition: border-color var(--fm-dur) var(--fm-ease);
+}
+
+.editarGenerosBuscador:focus-within {
+  border-color: var(--fm-accent);
+}
+
+.editarGenerosBuscadorIcono {
+  font-size: 16px;
+  color: var(--fm-accent);
+}
+
+.editarGenerosBuscador input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  height: 46px;
+  font-family: var(--fm-font-body);
+  font-size: 15px;
+  color: var(--fm-ink);
+}
+
+.editarGenerosGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.editarGenerosChip {
+  height: 78px;
+}
+
+.editarGenerosChip:hover {
+  transform: translateY(-1px);
+}
+
+.editarGenerosChip strong {
+  text-transform: capitalize;
+}
+
+.editarGenerosVacio {
+  margin: 8px 0 0;
+  text-align: center;
+  font-size: 14px;
+  color: var(--fm-muted);
+}
+
+.editarGenerosError {
+  margin: 16px 0 -4px;
+  color: var(--fm-accent);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.editarGenerosError code {
+  display: inline-block;
+  margin-top: 6px;
+  background: var(--fm-bg-soft);
+  color: var(--fm-accent);
+  padding: 4px 8px;
+  border-radius: var(--fm-radius-sm);
+  border: 1px solid var(--fm-accent);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.editarGenerosBotones {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.editarGenerosBotonCancelar,
+.editarGenerosBotonGuardar {
+  flex: 1;
+  height: 52px;
+  border: 1.5px solid var(--fm-border);
+  border-radius: var(--fm-radius-pill);
+  font-family: var(--fm-font-display);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0.005em;
+  cursor: pointer;
+  transition: transform var(--fm-dur) var(--fm-ease), box-shadow var(--fm-dur) var(--fm-ease),
+    filter var(--fm-dur) var(--fm-ease);
+}
+
+.editarGenerosBotonCancelar {
+  background: var(--fm-surface);
+  color: var(--fm-ink);
+}
+
+.editarGenerosBotonCancelar:hover {
+  background: var(--fm-bg-soft);
+}
+
+.editarGenerosBotonGuardar {
+  background: var(--fm-accent);
+  color: var(--fm-accent-ink);
+  box-shadow: none;
+  border-color: var(--fm-accent);
+}
+
+.editarGenerosBotonGuardar:hover:not(:disabled) {
+  filter: brightness(0.92);
+  box-shadow: 0 8px 20px var(--fm-glow);
+}
+
+.editarGenerosBotonCancelar:active,
+.editarGenerosBotonGuardar:active,
+.editarGenerosChip:active {
+  transform: scale(0.97);
+}
+
+@media (max-width: 360px) {
+  .editarGenerosHeader {
+    height: 68px;
+    padding: 0 20px;
+  }
+
+  .editarGenerosContenido {
+    padding: 18px 20px 24px;
+  }
+
+  .editarGenerosTitulo {
+    font-size: 23px;
+  }
+
+  .editarGenerosChip {
+    height: 68px;
+  }
+}
+
+/* ============================
+   DESKTOP EDITAR GENEROS
+============================ */
+
+@media (min-width: 900px) {
+  .pantallaEditarGeneros {
+    justify-content: center;
+  }
+
+  .editarGenerosHeader {
+    max-width: 640px;
+    height: 70px;
+    padding: 0 36px;
+    border-radius: var(--fm-radius-lg) var(--fm-radius-lg) 0 0;
+  }
+
+  .editarGenerosLogo {
+    font-size: 17px;
+  }
+
+  .editarGenerosContenido {
+    max-width: 640px;
+    padding: 32px 42px 40px;
+    border-radius: 0 0 var(--fm-radius-lg) var(--fm-radius-lg);
+  }
+
+  .editarGenerosTitulo {
+    font-size: 32px;
+  }
+
+  .editarGenerosGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .editarGenerosChip {
+    height: 86px;
+  }
+
+  .editarGenerosBotones {
+    max-width: 380px;
+    margin: 32px auto 0;
+  }
+}

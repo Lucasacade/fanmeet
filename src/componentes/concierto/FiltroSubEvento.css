@@ -1,0 +1,47 @@
+/* ===== FILTRO SUB EVENTO ===== */
+.filtro-sub-evento {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 999;
+  pointer-events: auto;
+}
+
+.filtro-sub-evento__boton {
+  padding: 10px 20px;
+  border-radius: var(--fm-radius-pill);
+  font-family: var(--fm-font-display);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--fm-dur) var(--fm-ease), color var(--fm-dur) var(--fm-ease),
+    border-color var(--fm-dur) var(--fm-ease), transform var(--fm-dur) var(--fm-ease);
+  border: 1.5px solid var(--fm-border);
+  background-color: var(--fm-surface);
+  color: var(--fm-ink);
+  position: relative;
+  z-index: 1000;
+  pointer-events: auto;
+}
+
+.filtro-sub-evento__boton:hover {
+  border-color: var(--fm-accent);
+  color: var(--fm-accent);
+  transform: translateY(-1px);
+}
+
+.filtro-sub-evento__boton--activo {
+  background-color: var(--fm-accent-soft-bg);
+  color: var(--fm-accent-soft-ink);
+  border-color: var(--fm-accent-soft-border);
+  box-shadow: none;
+}
+
+.filtro-sub-evento__boton--activo:hover {
+  background-color: var(--fm-accent-soft-bg);
+  border-color: var(--fm-accent-soft-border);
+  color: var(--fm-accent-soft-ink);
+  transform: translateY(-1px);
+}

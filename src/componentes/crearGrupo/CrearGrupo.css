@@ -1,0 +1,28 @@
+.crearGrupoPantalla {
+  min-height: 100vh;
+  background: var(--fm-bg);
+  color: var(--fm-ink);
+  font-family: var(--fm-font-body);
+  display: flex;
+  flex-direction: column;
+}
+
+.crearGrupoMain {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 40px 48px 88px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .crearGrupoMain {
+    padding: 32px 28px 72px;
+  }
+}
+
+@media (max-width: 520px) {
+  .crearGrupoMain {
+    padding: 22px 16px 56px;
+  }
+}

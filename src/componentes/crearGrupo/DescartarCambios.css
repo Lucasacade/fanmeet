@@ -1,0 +1,94 @@
+.modalDescartarFondo {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 23, 18, 0.55);
+  backdrop-filter: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  z-index: 50;
+  padding: 20px;
+}
+
+.modalDescartarCaja {
+  width: 390px;
+  max-width: 100%;
+  background: var(--fm-surface);
+  border: 1px solid var(--fm-border);
+  border-radius: var(--fm-radius-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 26px 24px;
+  box-sizing: border-box;
+  box-shadow: none;
+}
+
+.modalDescartarTexto {
+  margin: 0 0 24px;
+  color: var(--fm-ink);
+  font-family: var(--fm-font-display);
+  font-size: 22px;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  text-align: center;
+}
+
+.modalBotonDescartar {
+  width: 100%;
+  height: 46px;
+  border-radius: var(--fm-radius-sm);
+  border: 1px solid var(--fm-border);
+  background: var(--fm-surface);
+  color: var(--fm-ink);
+  font-family: var(--fm-font-display);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0.005em;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: transform var(--fm-dur) var(--fm-ease), box-shadow var(--fm-dur) var(--fm-ease);
+}
+
+.modalBotonDescartar:hover {
+  background: var(--fm-bg-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--fm-glow);
+}
+
+.modalBotonCancelar {
+  width: 100%;
+  height: 46px;
+  border-radius: var(--fm-radius-sm);
+  border: 1px solid var(--fm-border);
+  background: var(--fm-accent);
+  color: var(--fm-accent-ink);
+  font-family: var(--fm-font-display);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0.005em;
+  cursor: pointer;
+  box-shadow: none;
+  transition: transform var(--fm-dur) var(--fm-ease), box-shadow var(--fm-dur) var(--fm-ease);
+}
+
+.modalBotonCancelar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--fm-glow);
+  box-shadow: none;
+}
+
+@media (max-width: 520px) {
+  .modalDescartarCaja {
+    border-radius: var(--fm-radius-sm);
+    padding: 26px 20px 20px;
+  }
+
+  .modalDescartarTexto {
+    font-size: 19px;
+  }
+}

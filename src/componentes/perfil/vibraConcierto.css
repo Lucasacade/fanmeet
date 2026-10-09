@@ -1,0 +1,202 @@
+.vibraConcierto {
+  margin-top: 0;
+  padding: 0 16px;
+}
+
+.vibraConcierto h3 {
+  margin: 0;
+  font-family: var(--fm-font-display);
+  font-size: var(--fm-fs-lg);
+  font-weight: 700;
+  text-transform: none;
+  color: var(--fm-ink);
+}
+
+.vibraConciertoHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.vibraConciertoCambiar {
+  border: none;
+  background: transparent;
+  padding: 0;
+  color: var(--fm-accent);
+  font-family: var(--fm-font-display);
+  font-size: var(--fm-fs-xs);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.vibraConciertoCambiar:hover {
+  text-decoration: underline;
+}
+
+.vibraConciertoSubtitulo {
+  margin: 3px 0 14px;
+  font-family: var(--fm-font-body);
+  font-size: var(--fm-fs-sm);
+  color: var(--fm-muted);
+}
+
+.vibraConciertoVacio {
+  margin: 4px 0 14px;
+  font-family: var(--fm-font-body);
+  font-size: var(--fm-fs-sm);
+  color: var(--fm-muted);
+}
+
+/* ===== Resultado: lo que se ve por defecto en el propio perfil ===== */
+.vibraResultado {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1.5px solid var(--fm-accent-soft-border);
+  background: var(--fm-accent-soft-bg);
+  border-radius: var(--fm-radius-md);
+  padding: 16px;
+}
+
+.vibraResultadoIcono {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--fm-surface);
+  border: 1px solid var(--fm-accent-soft-border);
+  color: var(--fm-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.vibraResultadoIcono svg {
+  width: 22px;
+  height: 22px;
+}
+
+.vibraResultadoTexto {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.vibraResultadoTexto strong {
+  font-family: var(--fm-font-display);
+  font-size: var(--fm-fs-md);
+  font-weight: 700;
+  color: var(--fm-ink);
+}
+
+.vibraResultadoTexto small {
+  font-family: var(--fm-font-body);
+  font-size: var(--fm-fs-xs);
+  color: var(--fm-muted);
+}
+
+.vibraConciertoOpciones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vibraOpcion {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  border: 1.5px solid var(--fm-border);
+  background: var(--fm-surface);
+  border-radius: var(--fm-radius-md);
+  padding: 14px 16px;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  box-shadow: none;
+  transition: border-color var(--fm-dur) var(--fm-ease), background var(--fm-dur) var(--fm-ease),
+    transform var(--fm-dur) var(--fm-ease);
+}
+
+.vibraOpcion:hover:not(:disabled) {
+  border-color: var(--fm-accent);
+  transform: translateY(-1px);
+}
+
+.vibraOpcion:disabled {
+  cursor: default;
+}
+
+.vibraOpcionIcono {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--fm-border);
+  background: var(--fm-bg-soft);
+  color: var(--fm-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background var(--fm-dur) var(--fm-ease), border-color var(--fm-dur) var(--fm-ease),
+    color var(--fm-dur) var(--fm-ease);
+}
+
+.vibraOpcionIcono svg {
+  width: 20px;
+  height: 20px;
+}
+
+.vibraOpcionTexto {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.vibraOpcionTexto strong {
+  font-family: var(--fm-font-display);
+  font-size: var(--fm-fs-body);
+  font-weight: 700;
+  text-transform: none;
+  color: var(--fm-ink);
+}
+
+.vibraOpcionTexto small {
+  font-family: var(--fm-font-body);
+  font-size: var(--fm-fs-xs);
+  color: var(--fm-muted);
+}
+
+.vibraOpcionRadio {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid var(--fm-border);
+  flex-shrink: 0;
+}
+
+.vibraOpcion.activo {
+  border-color: var(--fm-accent);
+  background: var(--fm-bg-soft);
+}
+
+.vibraOpcion.activo .vibraOpcionIcono {
+  background: var(--fm-accent);
+  border-color: var(--fm-accent);
+  color: var(--fm-accent-ink);
+}
+
+.vibraOpcion.activo .vibraOpcionRadio {
+  border-color: var(--fm-accent);
+  border-width: 5px;
+}
+
+@media (min-width: 768px) {
+  .vibraConcierto {
+    padding: 0 40px;
+  }
+}

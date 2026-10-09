@@ -1,0 +1,70 @@
+.CarruselWrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* scroll base */
+.SubEventosCarrusel {
+  display: flex;
+  gap: 12px;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  padding: 10px;
+  width: 100%;
+
+  scrollbar-width: none;
+}
+
+.SubEventosCarrusel::-webkit-scrollbar {
+  display: none;
+}
+
+/* cards */
+.SubEventoCard {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+/* ========================= */
+/* FLECHAS */
+/* ========================= */
+
+.CarruselBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+  border: 1px solid rgba(242, 237, 228, 0.35);
+
+  background: rgba(18, 16, 15, 0.55);
+  backdrop-filter: none;
+
+  color: var(--fm-ink);
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 10;
+
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.CarruselBtn:hover {
+  border-color: var(--fm-accent);
+  color: var(--fm-accent);
+}
+
+.CarruselBtn.left { left: 8px; }
+.CarruselBtn.right { right: 8px; }

@@ -1,0 +1,50 @@
+.FansUnidosCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 6px;
+  background: var(--fm-bg-soft);
+  border: 1px solid var(--fm-border);
+  border-radius: var(--fm-radius-md);
+  padding: 14px;
+  min-height: 76px;
+  box-sizing: border-box;
+}
+
+.FansSubtitulo {
+  margin: 0;
+  font-family: var(--fm-font-body);
+  font-size: var(--fm-fs-xs);
+  font-weight: 600;
+  color: var(--fm-muted);
+}
+
+.FansCantidad {
+  margin: 0;
+  font-family: var(--fm-font-display);
+  font-size: var(--fm-fs-lg);
+  font-weight: 700;
+  color: var(--fm-ink);
+  white-space: nowrap;
+}
+
+.FansTexto {
+  margin-top: 2px;
+  text-align: left;
+  background: var(--fm-accent-soft-bg);
+  border: 1px solid var(--fm-accent-soft-border);
+  padding: 5px 12px;
+  border-radius: var(--fm-radius-pill);
+  font-family: var(--fm-font-display);
+  font-size: var(--fm-fs-2xs);
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0.005em;
+  color: var(--fm-accent-soft-ink);
+  cursor: pointer;
+  transition: transform var(--fm-dur) var(--fm-ease);
+}
+.FansTexto:hover { transform: translateY(-1px); }
+
+.FansBarra { display: none; }

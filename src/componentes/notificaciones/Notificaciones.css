@@ -1,0 +1,36 @@
+.pantallaNotificaciones {
+  min-height: 100vh;
+  background: var(--fm-bg);
+  padding-bottom: 96px;
+}
+
+/* ============================
+        LISTA
+============================ */
+
+.notificacionesLista {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 4px 20px 20px;
+}
+
+.mensajeNotificaciones {
+  font-family: var(--fm-font-mono);
+  color: var(--fm-muted);
+  font-size: 14px;
+  text-align: center;
+  padding: 40px 0;
+}
+
+@media (min-width: 768px) {
+  .pantallaNotificaciones {
+    padding-left: 240px;
+  }
+
+  .notificacionesLista {
+    padding-left: calc((100% - 850px) / 2 + 24px);
+    padding-right: calc((100% - 850px) / 2 + 24px);
+    gap: 16px;
+  }
+}

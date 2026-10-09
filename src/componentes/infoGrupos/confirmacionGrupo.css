@@ -1,0 +1,61 @@
+.confirmacionGrupo {
+  background: var(--fm-surface);
+  border-radius: var(--fm-radius-md);
+  border: 1px solid var(--fm-border);
+  padding: 20px 16px;
+  margin: 10px 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.confirmacionGrupo h3 {
+  margin: 0;
+  font-family: var(--fm-font-display);
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: none;
+  color: var(--fm-ink);
+}
+
+.confirmacionGrupo p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--fm-muted);
+  line-height: 1.55;
+}
+
+.confirmacionGrupo button {
+  margin-top: 8px;
+  width: 100%;
+  padding: 14px;
+  background: var(--fm-accent);
+  color: var(--fm-accent-ink);
+  border: 1px solid var(--fm-border);
+  border-radius: var(--fm-radius-pill);
+  font-family: var(--fm-font-display);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0.005em;
+  cursor: pointer;
+  box-shadow: none;
+  transition: transform var(--fm-dur) var(--fm-ease), box-shadow var(--fm-dur) var(--fm-ease);
+}
+
+.confirmacionGrupo button:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 24px var(--fm-glow);
+}
+
+.confirmacionGrupo button:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 4px 12px var(--fm-glow);
+}
+
+@media (min-width: 768px) {
+  .confirmacionGrupo {
+    margin: 12px 0 0;
+    padding: 24px 20px;
+  }
+}

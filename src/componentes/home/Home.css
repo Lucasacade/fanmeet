@@ -1,0 +1,609 @@
+/* ─────────────────────────────────────────────
+   HOME NUEVO: secciones por género
+   Mantiene dimensiones originales
+───────────────────────────────────────────── */
+
+/* Ocultamos los filtros viejos */
+.home-filtros,
+.home-section-header,
+.home-grid {
+  display: none;
+}
+
+/* Buscador centrado sin achicar toda la pantalla */
+.home-search {
+  display: flex;
+  justify-content: center;
+}
+
+.home-search input {
+  max-width: 600px;
+}
+
+/* Catálogo */
+.home-catalogo {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-bottom: 18px;
+}
+
+.home-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.home-row-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 4px 16px 0;
+}
+
+.home-row-header h2 {
+  margin: 0;
+  font-family: var(--fm-font-display);
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  color: var(--fm-ink);
+}
+
+.home-row-header span {
+  font-family: var(--fm-font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--fm-accent);
+}
+
+/* Filas horizontales, pero respetando tamaño de card original */
+.home-row-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 0 16px 8px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: x mandatory;
+}
+
+.home-row-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* En mobile: card grande como antes */
+.home-row-scroll .home-card {
+  flex: 0 0 calc(100vw - 32px);
+  max-width: calc(100vw - 32px);
+  scroll-snap-align: start;
+  margin-bottom: 0;
+}
+
+/* Resultados del buscador */
+.home-resultados-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0 16px;
+}
+
+/* Card: mantenemos el estilo original */
+.home-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  text-align: left;
+}
+
+/* Imagen igual que antes, pero deja salir el botón */
+.home-card-imagen {
+  position: relative;
+  width: 100%;
+  border-radius: var(--fm-radius-md);
+  border: 1.5px solid var(--fm-border);
+  overflow: visible;
+  aspect-ratio: 4 / 3;
+  background: var(--fm-bg-soft);
+  box-shadow: var(--fm-shadow-sm);
+}
+
+.home-card-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: calc(var(--fm-radius-md) - 1.5px);
+}
+
+/* Botón mitad adentro y mitad afuera */
+.home-card-btn-unirme {
+  position: absolute;
+  bottom: -17px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+
+  background: var(--fm-accent);
+  color: var(--fm-accent-ink);
+  border: 1px solid var(--fm-border);
+  border-radius: var(--fm-radius-sm);
+
+  padding: 10px 32px;
+  font-family: var(--fm-font-display);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0.005em;
+  cursor: pointer;
+  white-space: nowrap;
+
+  box-shadow: none;
+  transition: filter var(--fm-dur) var(--fm-ease);
+}
+
+.home-card-btn-unirme:hover {
+  filter: brightness(0.88);
+}
+
+.home-card-info {
+  padding: 28px 4px 0;
+}
+
+.home-card-info h3 {
+  margin: 0 0 3px;
+  font-family: var(--fm-font-display);
+  font-size: var(--fm-fs-md);
+  font-weight: 700;
+  color: var(--fm-ink);
+  line-height: 1.2;
+}
+
+.home-card-meta {
+  display: flex;
+  gap: 4px;
+  font-family: var(--fm-font-mono);
+  font-size: var(--fm-fs-xs);
+  color: var(--fm-muted);
+}
+
+/* Badge "Unido": el concierto sigue teniendo presencia visual, no se ve
+   apagado ni deshabilitado, solo se distingue del resto. */
+.home-card-badge-unido {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  border-radius: var(--fm-radius-pill);
+  background: var(--fm-surface);
+  border: 1px solid var(--fm-accent-soft-border);
+  color: var(--fm-accent);
+  font-family: var(--fm-font-display);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.home-card-meta span:first-child::after {
+  content: " •";
+  margin-right: 2px;
+}
+
+/* Grupos creados y fans unidos de cada concierto */
+.home-card-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.home-card-stats span {
+  padding: 3px 9px;
+  border-radius: var(--fm-radius-pill);
+  background: var(--fm-bg-soft);
+  border: 1px solid var(--fm-border);
+  color: var(--fm-accent);
+  font-family: var(--fm-font-mono);
+  font-size: var(--fm-fs-2xs);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Tablet: respeta la lógica original de 2 columnas */
+@media (min-width: 768px) {
+  .home-row-header {
+    padding: 8px 40px 0;
+  }
+
+  .home-row-header h2 {
+    font-size: 22px;
+  }
+
+  .home-row-scroll {
+    gap: 24px;
+    padding: 0 40px 10px;
+  }
+
+  .home-row-scroll .home-card {
+    flex: 0 0 calc((100vw - 104px) / 2);
+    max-width: calc((100vw - 104px) / 2);
+  }
+
+  .home-resultados-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    padding: 0 40px;
+  }
+}
+
+/* Desktop: respeta la lógica original de 3 columnas */
+@media (min-width: 1024px) {
+  .home-search {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home-row-header {
+    padding: 8px 64px 0;
+  }
+
+  .home-row-header h2 {
+    font-size: 26px;
+    letter-spacing: -0.005em;
+  }
+
+  .home-row-scroll {
+    gap: 28px;
+    padding: 0 64px 12px;
+  }
+
+  .home-row-scroll .home-card {
+    flex: 0 0 calc((100vw - 184px) / 3);
+    max-width: calc((100vw - 184px) / 3);
+  }
+
+  .home-card-imagen {
+    aspect-ratio: 3 / 2;
+  }
+
+  .home-card-info {
+    padding: 30px 4px 0;
+  }
+
+  .home-resultados-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    padding: 0 64px;
+  }
+}
+
+/* Wide: respeta la lógica original de 4 columnas */
+@media (min-width: 1440px) {
+  .home-row-header {
+    padding: 8px 80px 0;
+  }
+
+  .home-row-scroll {
+    gap: 32px;
+    padding: 0 80px 14px;
+  }
+
+  .home-row-scroll .home-card {
+    flex: 0 0 calc((100vw - 256px) / 4);
+    max-width: calc((100vw - 256px) / 4);
+  }
+
+  .home-resultados-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    padding: 0 80px;
+  }
+}
+/* ─────────────────────────────
+   HEADER + BUSCADOR
+───────────────────────────── */
+
+.pantalla-home {
+  background: var(--fm-bg) !important;
+}
+
+@media (min-width: 768px) {
+  .pantalla-home {
+    padding-left: 240px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* CTAs FANMEET */
+.home-card-btn-unirme,
+.home-btn-principal,
+.home-filtro--activo {
+  background: var(--fm-accent) !important;
+  border: 1px solid var(--fm-border) !important;
+  color: var(--fm-accent-ink) !important;
+}
+
+.home-card-btn-unirme {
+  box-shadow: none !important;
+}
+
+.home-card-btn-unirme:hover,
+.home-btn-principal:hover {
+  filter: brightness(0.88);
+}
+
+/* sacar número del costado de Pop / Rock / etc */
+.home-row-header span {
+  display: none !important;
+}
+
+/* BODY */
+.home-main {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  background: var(--fm-bg) !important;
+  padding-top: 16px !important;
+  padding-bottom: 96px !important;
+  box-sizing: border-box !important;
+}
+
+/* BUSCADOR */
+.home-search {
+  width: 100%;
+  padding: 10px 16px 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: static;
+  margin: 0;
+}
+
+.home-search::before {
+  content: none;
+}
+
+.home-search-campo {
+  width: 100%;
+  max-width: 420px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 18px;
+  box-sizing: border-box;
+  border-radius: var(--fm-radius-sm);
+  border: 1px solid var(--fm-border);
+  background: var(--fm-surface);
+  transition: border-color var(--fm-dur) var(--fm-ease), box-shadow var(--fm-dur) var(--fm-ease);
+}
+
+.home-search-campo:focus-within {
+  border-color: var(--fm-accent);
+  box-shadow: 0 0 0 2px var(--fm-glow);
+}
+
+.home-search-icono {
+  flex-shrink: 0;
+  font-size: 19px;
+  line-height: 1;
+  color: var(--fm-muted);
+}
+
+.home-search-campo:focus-within .home-search-icono {
+  color: var(--fm-accent);
+}
+
+.home-search input {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--fm-ink);
+  font-family: var(--fm-font-body);
+  font-size: var(--fm-fs-body);
+  font-weight: 500;
+  outline: none;
+  box-shadow: none;
+}
+
+.home-search input::placeholder {
+  color: var(--fm-muted);
+  font-size: var(--fm-fs-body);
+  font-weight: 400;
+}
+
+/* títulos de secciones */
+.home-row-header {
+  padding: 0 20px !important;
+}
+
+.home-row-header h2 {
+  color: var(--fm-ink) !important;
+  font-size: 19px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.005em !important;
+}
+
+/* filas */
+.home-row-scroll {
+  padding: 0 20px 8px !important;
+  gap: 16px !important;
+  /* el snap respeta el mismo margen izquierdo en filas con scroll */
+  scroll-padding-inline: 20px;
+}
+.home-card-btn-unirme--ver {
+  min-width: 140px;
+}
+
+/* "Ver concierto" (ya unido) se diferencia de "Unirme": botón ghost
+   con el violeta de marca, en vez del relleno sólido, para no
+   confundirse de un vistazo en el listado. */
+.home-card-btn-unirme.home-card-btn-unirme--ver {
+  padding: 11px 36px !important;
+  font-size: 13px !important;
+  background: var(--fm-surface) !important;
+  border: 1.5px solid var(--fm-accent) !important;
+  color: var(--fm-accent) !important;
+  box-shadow: none !important;
+}
+
+.home-card-btn-unirme.home-card-btn-unirme--ver:hover {
+  background: var(--fm-bg-soft) !important;
+  filter: none;
+}
+
+/* CELULAR: cards verticales sin cortar botón y con margen correcto */
+@media (max-width: 767px) {
+  .home-catalogo {
+    gap: 34px;
+  }
+
+  .home-row {
+    overflow: visible;
+  }
+
+  .home-row-header {
+    padding: 0 20px;
+  }
+
+  .home-row-scroll {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px 38px;
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-padding-left: 20px;
+  }
+
+  .home-row-scroll .home-card {
+    flex: 0 0 208px;
+    min-width: 208px;
+    max-width: 208px;
+    overflow: visible;
+  }
+
+  .home-card-imagen {
+    position: relative;
+    width: 100%;
+    height: 232px;
+    aspect-ratio: auto;
+    flex-shrink: 0;
+  }
+
+  .home-card-btn-unirme {
+    bottom: -17px;
+    z-index: 20;
+  }
+
+  .home-card-info {
+    padding: 34px 2px 0;
+  }
+
+  .home-card-info h3 {
+    font-size: var(--fm-fs-md);
+    line-height: 1.1;
+    font-weight: 700;
+    color: var(--fm-ink);
+  }
+
+  .home-card-artista {
+    margin: 2px 0 0;
+    font-family: var(--fm-font-mono);
+    font-size: var(--fm-fs-xs);
+    font-weight: 600;
+    color: var(--fm-accent);
+  }
+
+  .home-card-meta {
+    font-size: var(--fm-fs-2xs);
+    line-height: 1.25;
+    color: var(--fm-muted);
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+/* CAMPANITA DE NOTIFICACIONES */
+.home-header-bell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--fm-border);
+  border-radius: var(--fm-radius-sm);
+  background: var(--fm-surface);
+  color: var(--fm-ink);
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.home-header-bell svg {
+  width: 16px;
+  height: 16px;
+}
+
+.home-header-bell:hover {
+  background: var(--fm-bg-soft);
+}
+
+.home-header-bell-badge {
+  position: absolute;
+  top: -7px;
+  right: -8px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: var(--fm-radius-sm);
+  border: 1px solid var(--fm-border);
+  background: var(--fm-accent);
+  color: var(--fm-accent-ink);
+  font-family: var(--fm-font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 14px;
+  text-align: center;
+  box-shadow: none;
+}
+
+.home-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.home-header-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--fm-border);
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.home-header-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}

@@ -1,0 +1,38 @@
+.pantallaPerfil {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: var(--fm-bg);
+  font-family: var(--fm-font-body);
+}
+
+.perfilContenido {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding-top: 20px;
+  padding-bottom: calc(110px + env(safe-area-inset-bottom));
+}
+
+.perfilOverlayPantalla {
+  position: fixed;
+  inset: 0;
+  z-index: 550;
+  overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  .pantallaPerfil {
+    background: var(--fm-bg);
+    padding-left: 240px;
+  }
+
+  .perfilContenido {
+    max-width: 680px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 26px;
+    padding-bottom: 90px;
+  }
+}
